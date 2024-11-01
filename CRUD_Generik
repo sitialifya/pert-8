@@ -1,0 +1,62 @@
+// Fungsi generik untuk mendapatkan elemen berdasarkan indeks
+function getElementAtIndex(array, index) {
+    if (index >= 0 && index < array.length) {
+        return array[index];
+    }
+    throw new Error("Indeks di luar jangkauan");
+}
+
+// Fungsi untuk menambahkan elemen (CREATE)
+function addElement(array, element) {
+    array.push(element);
+    return array;
+}
+
+// Fungsi untuk mengubah elemen (UPDATE)
+function updateElementAtIndex(array, index, newElement) {
+    if (index >= 0 && index < array.length) {
+        array[index] = newElement;
+        return array;
+    }
+    throw new Error("Indeks di luar jangkauan");
+}
+
+// Fungsi untuk menghapus elemen (DELETE)
+function deleteElementAtIndex(array, index) {
+    if (index >= 0 && index < array.length) {
+        array.splice(index, 1);
+        return array;
+    }
+    throw new Error("Indeks di luar jangkauan");
+}
+
+// Contoh penggunaan dengan array angka
+let angka = [10, 20, 30];
+let kata = ["satu", "dua", "tiga"];
+
+// CREATE - Menambahkan elemen
+addElement(angka, 40);
+console.log("CREATE (angka):", angka); // Output: [10, 20, 30, 40]
+
+// READ - Membaca elemen berdasarkan indeks
+console.log("READ (angka):", getElementAtIndex(angka, 1)); // Output: 20
+
+// UPDATE - Mengubah elemen pada indeks tertentu
+updateElementAtIndex(angka, 2, 35);
+console.log("UPDATE (angka):", angka); // Output: [10, 20, 35, 40]
+
+// DELETE - Menghapus elemen berdasarkan indeks
+deleteElementAtIndex(angka, 1);
+console.log("DELETE (angka):", angka); // Output: [10, 35, 40]
+
+// Contoh penggunaan dengan array kata
+addElement(kata, "empat");
+console.log("CREATE (kata):", kata); // Output: ["satu", "dua", "tiga", "empat"]
+
+console.log("READ (kata):", getElementAtIndex(kata, 0)); // Output: "satu"
+
+updateElementAtIndex(kata, 2, "tigabelas");
+console.log("UPDATE (kata):", kata); // Output: ["satu", "dua", "tigabelas", "empat"]
+
+deleteElementAtIndex(kata, 3);
+console.log("DELETE (kata):", kata); // Output: ["satu", "dua", "tigabelas"]
