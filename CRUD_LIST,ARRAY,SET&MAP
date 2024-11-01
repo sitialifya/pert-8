@@ -1,0 +1,56 @@
+// Menggunakan List (Array)
+let listMahasiswa = ["Budi", "Siti", "Agus"];
+// CREATE - Menambahkan elemen baru
+listMahasiswa.push("Ani");
+console.log("CREATE (Array):", listMahasiswa); // Output: ["Budi", "Siti", "Agus", "Ani"]
+
+// READ - Membaca elemen berdasarkan indeks
+console.log("READ (Array):", listMahasiswa[1]); // Output: "Siti"
+
+// UPDATE - Mengubah elemen di indeks tertentu
+listMahasiswa[2] = "Agung";
+console.log("UPDATE (Array):", listMahasiswa); // Output: ["Budi", "Siti", "Agung", "Ani"]
+
+// DELETE - Menghapus elemen berdasarkan indeks
+listMahasiswa.splice(1, 1); // Menghapus elemen dengan indeks 1 (Siti)
+console.log("DELETE (Array):", listMahasiswa); // Output: ["Budi", "Agung", "Ani"]
+
+// Menggunakan Set
+let setMahasiswa = new Set(["Budi", "Siti", "Agus"]);
+// CREATE - Menambahkan elemen baru ke Set
+setMahasiswa.add("Ani");
+setMahasiswa.add("Budi"); // Tidak akan menambahkan karena "Budi" sudah ada
+console.log("CREATE (Set):", setMahasiswa); // Output: Set(4) {"Budi", "Siti", "Agus", "Ani"}
+
+// READ - Mengecek apakah elemen ada di Set
+console.log("READ (Set):", setMahasiswa.has("Siti")); // Output: true
+
+// UPDATE - Tidak ada cara langsung untuk memperbarui elemen di Set, jadi kita bisa menghapus dan menambah lagi
+if (setMahasiswa.has("Siti")) {
+  setMahasiswa.delete("Siti");
+  setMahasiswa.add("Siska");
+}
+console.log("UPDATE (Set):", setMahasiswa); // Output: Set(4) {"Budi", "Agus", "Ani", "Siska"}
+
+// DELETE - Menghapus elemen dari Set
+setMahasiswa.delete("Agus");
+console.log("DELETE (Set):", setMahasiswa); // Output: Set(3) {"Budi", "Ani", "Siska"}
+
+// Menggunakan Map
+let mapNilai = new Map();
+mapNilai.set("Budi", 90);
+mapNilai.set("Siti", 85);
+// CREATE - Menambahkan pasangan kunci-nilai baru
+mapNilai.set("Agus", 88);
+console.log("CREATE (Map):", mapNilai); // Output: Map(3) { "Budi" => 90, "Siti" => 85, "Agus" => 88 }
+
+// READ - Membaca nilai berdasarkan kunci
+console.log("READ (Map):", mapNilai.get("Budi")); // Output: 90
+
+// UPDATE - Mengubah nilai berdasarkan kunci
+mapNilai.set("Siti", 95);
+console.log("UPDATE (Map):", mapNilai); // Output: Map(3) { "Budi" => 90, "Siti" => 95, "Agus" => 88 }
+
+// DELETE - Menghapus elemen berdasarkan kunci
+mapNilai.delete("Agus");
+console.log("DELETE (Map):", mapNilai); // Output: Map(2) { "Budi" => 90, "Siti" => 95 }
